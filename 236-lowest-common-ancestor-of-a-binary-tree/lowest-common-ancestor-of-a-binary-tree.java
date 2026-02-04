@@ -11,7 +11,7 @@ class Solution {
    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if(root==p||root==q)return root;
         if(find(root.left,p) &&find(root.left,q))return lowestCommonAncestor(root.left,p,q);
-        if (find(root.right,p) && find(root.right,q))return lowestCommonAncestor(root.right,p,q);
+        else if (find(root.right,p) && find(root.right,q))return lowestCommonAncestor(root.right,p,q);
         return root;
     }
     public static boolean find(TreeNode root, TreeNode p ){
