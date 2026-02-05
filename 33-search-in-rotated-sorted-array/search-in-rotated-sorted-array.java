@@ -7,15 +7,12 @@ class Solution {
 
         if (nums[mid] == target)
             return mid;
-
-        // Left half sorted
         if (nums[low] <= nums[mid]) {
             if ( target < nums[mid]&& target >= nums[low] )
                 high = mid - 1;
             else
                 low = mid + 1;
         }
-        // Right half sorted
         else {
             if (target > nums[mid] && target <= nums[high])
                 low = mid + 1;
