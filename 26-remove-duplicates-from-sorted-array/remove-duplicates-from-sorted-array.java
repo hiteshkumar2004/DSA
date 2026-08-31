@@ -1,17 +1,15 @@
 class Solution {
     public int removeDuplicates(int[] nums) {
-        // int i=0,j=0;
-        // int k=0;
-        // while(i<nums.length){
-        //     while(i<nums.length&&nums[i]==nums[j] ) i++;
-        //     nums[k++]=nums[j];
-        //     j=i;
-        // }
-        // return k;
-        int[] ans=Arrays.stream(nums).distinct().toArray();
-        for(int i=0;i<ans.length;i++){
-            nums[i]=ans[i];
+        int n=nums.length;
+        if(n==1) return 1;
+        int slow=0;
+        int count=1;
+        for(int fast=0;fast<n;fast++){
+            if(nums[fast]!=nums[slow]){
+                nums[++slow]=nums[fast];
+                count++;
+            }
         }
-        return ans.length;
+        return count;
     }
 }
